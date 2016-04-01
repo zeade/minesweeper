@@ -1,0 +1,16 @@
+#board {
+  margin-left: 20px;
+  border-width: 1px 0 0 1px;
+  border-style: solid;
+  border-color: black;
+  width: 520px;
+}
+#board .tile {
+  display: inline-block;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  border-width: 0 1px 1px 0;
+  border-style: solid;
+  border-color: black;
+}
