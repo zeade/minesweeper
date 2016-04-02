@@ -50,7 +50,7 @@ module Minesweeper
           @mines_count   = args[2] ? args[2].to_i : @rows_count * @columns_count / 8
           new_board
           print board.text_display
-        when /\Au(ncover)?|c(lick|heck)?|p(ick)?\z/i
+        when /\A(u(ncover)?|c(lick|heck)?|p(ick)?)\z/i
           modify_tile(cmd, args) do |row, col|
             if board.tile(row, col).covered?
               if @first_pick
@@ -96,20 +96,21 @@ module Minesweeper
     end
 
     def help
-      <<-"EOS"
-Commands:
-  new [rows] [columns] [bombs]
-    starts new game
+      <<~"EOS"
+        Commands:
+          new [rows] [columns] [bombs]
+            starts new game
 
-  uncover <row> <col>
-    uncovers tile (aliases: check, click, pick)
+          uncover <row> <col>
+            uncovers tile (aliases: check, click, pick)
 
-  flag <row> <col>
-    flags tile as a bomb
+          flag <row> <col>
+            flags tile as a bomb
 
-  print
-    displays board again
-Current board: #{@rows_count} rows, #{@columns_count} columns, #{@mines_count} mines
+          print
+            displays board again
+
+        Current board: #{@rows_count} rows, #{@columns_count} columns, #{@mines_count} mines
       EOS
     end
 
@@ -121,7 +122,7 @@ Current board: #{@rows_count} rows, #{@columns_count} columns, #{@mines_count} m
 
     def modify_tile(command, args)
       if args.length != 2 || args[0] !~ /\A\d+\z/ || args[1] !~ /\A\d+\z/
-        puts "Usage: #{command} <row> <col>\n  row must be between 0 and #{@row_count - 1}, column must be between 0 and #{@column_count - 1}"
+        puts "Usage: #{command} <row> <col>\n  row must be between 0 and #{@rows_count - 1}, column must be between 0 and #{@columns_count - 1}"
       else
         @turns += 1
         # Force int values
