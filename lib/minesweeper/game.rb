@@ -102,7 +102,8 @@ module Minesweeper
             starts new game
 
           uncover <row> <col>
-            uncovers tile (aliases: check, click, pick)
+            uncovers tile (aliases: check, click, pick); if you select an already uncovered tile it will reveal all
+            unflagged tiles surrounding it
 
           flag <row> <col>
             flags tile as a bomb
