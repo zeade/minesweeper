@@ -31,7 +31,7 @@ module Minesweeper
           end
         end
       end
-      puts "wins: #{solver.wins}, losses: #{solver.losses}, took: #{(solver.solve_time / 60.0).round(4)} sec"
+      puts "wins: #{wins}, losses: #{losses}, took: #{(solve_time / 60.0).round(4)} sec"
     end
 
     def solve_one
