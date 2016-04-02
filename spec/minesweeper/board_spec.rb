@@ -65,14 +65,14 @@ module Minesweeper
         it('is nil') { expect(subject).to be nil }
       end
     end
-  end
 
-  describe '#adjacent_positions' do
-    subject { board.adjacent_positions(1,1) }
-    it 'returns an array of row and column pairs of adjacent positions on a grid' do
-      expect(subject).to include([0, 1], [2, 2])
-      expect(subject.count).to eq(8)
+    describe '#adjacent_positions' do
+      subject { board.adjacent_positions(1,1) }
+      it 'returns an array of row and column pairs of adjacent positions on a grid' do
+        expect(subject).to include([0, 1], [2, 2])
+        expect(subject.count).to eq(8)
+      end
     end
-  end
 
+  end
 end
